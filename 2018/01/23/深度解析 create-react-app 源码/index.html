@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>
     
     深度解析 create-react-app 源码 |
@@ -19,95 +20,48 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-
 <meta name="generator" content="Hexo 5.1.1"></head>
 <body>
-  <div class="mobile-navbar" id="mobileNavbar">
-  <div class="mobile-navbar-logo">
-    <a href="/." class="logo">青湛</a>
+  <nav class="nav">
+    <div class="nav-bar">
+  <div class="title">
+    <a href="/." title="青湛">青湛</a>
   </div>
-  <div class="mobile-navbar-menu" id="menuBar">
+  <div class="menu-controller">
     <span></span>
     <span></span>
     <span></span>
   </div>
 </div>
 
-<div class="mobile-menu" id="mobileMenu">
-  <ul class="mobile-menu-list">
-    
-    <li class="mobile-menu-item">
-      
-      <a href="/">
-        
-        首页
-        
-      </a>
-    </li>
-    
-    <li class="mobile-menu-item">
-      
-      <a href="/archives">
-        
-        归档
-        
-      </a>
-    </li>
-    
-    <li class="mobile-menu-item">
-      
-      <a href="/tags">
-        
-        标签
-        
-      </a>
-    </li>
-    
-  </ul>
+<div class="menu">
+  
+  <li>
+    <a href="/" title="首页">首页</a>
+  </li>
+  
+  <li>
+    <a href="/archives" title="归档">归档</a>
+  </li>
+  
+  <li>
+    <a href="/tags" title="标签">标签</a>
+  </li>
+  
 </div>
-  <div class="container" id="main">
+  </nav>
+  <main>
     <div class="layout">
-      <ul class="menu">
-  
-  <li class="menu-item">
-    <a href="/" class="iconfont icon-home"></a>
-    
-    <span>首页</span>
-  </li>
-  
-  <li class="menu-item">
-    <a href="/archives" class="iconfont icon-archive"></a>
-    
-    <span>归档</span>
-  </li>
-  
-  <li class="menu-item">
-    <a href="/tags" class="iconfont icon-tags"></a>
-    
-    <span>标签</span>
-  </li>
-  
-</ul>
       <article class="post">
-  <h1 class="post-title">
-    
+  <h1 class="title">
     深度解析 create-react-app 源码
-    
   </h1>
-  <div class="post-pub">
-    <div class="post-date">
-      <i class="iconfont">&#xe64d;</i>
-      <span>2018-01-23</span>
-    </div>
-    <div class="post-cat">
-      
-    </div>
+
+  <div class="info">
+    <span class="date">2018-01-23</span>
   </div>
 
-  <div class="post-content">
-    
-
-    
+  <div class="content">
     <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这段时间公司的事情变得比较少，空下了很多时间，作为一个刚刚毕业初入职场的菜鸟级程序员（去年是），一点都不敢放松，秉持着我为人人的思想也想为开源社区做点小小的贡献，但是一直又没有什么明确的目标，最近在努力的准备吃透<code>react</code>，加上<code>react</code>的脚手架工具<code>create-react-app</code>已经很成熟了，初始化一个<code>react</code>项目根本看不到它到底是怎么给我搭建的这个开发环境，又是怎么做到的，我还是想知道知道，所以就把他拖出来溜溜。</p>
 <p><strong>文中若有错误或者需要指正的地方，多多指教，共同进步。</strong></p>
 <a id="more"></a>
@@ -354,55 +308,39 @@
 <h2 id="啰嗦两句"><a href="#啰嗦两句" class="headerlink" title="啰嗦两句"></a>啰嗦两句</h2><p>本来这篇我是打算把<code>create-react-app</code>中所有的源码的拿出来说一说，包括其中的<code>webpack</code>的配置啊，<code>eslint</code>的配置啊，<code>babel</code>的配置啊…..等等，但是实在是有点多，他自己本身把初始化的命令和控制<code>react</code>环境的命令分离成了<code>packages/create-react-app</code>和<code>packages/react-script</code>两边，这个篇幅才把<code>packages/create-react-app</code>说完，更复杂的<code>packages/react-script</code>在说一下这篇幅都不知道有多少了，所以我打算之后空了，在单独写一篇关于<code>packages/react-script</code>的源码分析的文。</p>
 <p><strong>码字不易，可能出现错别字什么的，说的不清楚的，说错的，欢迎指正，多多包涵！</strong></p>
 
-    
   </div>
 
   
-  <div class="post-tags">
+  <div class="tags">
     
-    <a href="/tags/%E6%8A%80%E6%9C%AF/" class="tag"><i class="iconfont">&#xe69f;</i>技术</a>
+    <a href="/tags/%E6%8A%80%E6%9C%AF/" title="技术" class="tag">技术</a>
     
-    <a href="/tags/JavaScript/" class="tag"><i class="iconfont">&#xe69f;</i>JavaScript</a>
+    <a href="/tags/JavaScript/" title="JavaScript" class="tag">JavaScript</a>
     
   </div>
+  
 </article>
-      <div class="footer">
-  
-  <div class="footer-links">
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="layout">
+      <div class="copy">
+  <p>
+    由 <a target="_blank" rel="noopener" href="https://hexo.io/" title="Hexo">Hexo</a> 强力驱动 |
+    主题 - <a target="_blank" rel="noopener" href="https://github.com/mintsweet/hexo-theme-cold" title="Cold">Cold</a>
+  </p>
+  <p>
     
+    &copy;
     
-    <a href="mailto:envelope" class="iconfont icon-envelope"></a>
+    2017 -
     
-    
-    
-    <a target="_blank" rel="noopener" href="https://github.com/mintsweet" class="iconfont icon-github"></a>
-    
-    
-    
-    <a target="_blank" rel="noopener" href="https://weibo.com/yudaren0720" class="iconfont icon-weibo"></a>
-    
-    
-  </div>
-  
-  <div class="footer-copy">
-    <p>
-      由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 
-      主题 - <a href="https://github.com/yudaren007007/hexo-theme-cold" target="_blank">Cold</a>
-    </p>
-    <p>
-      
-      &copy;
-      
-      2017 -
-      
-      2020
-      <i class="iconfont">&#xe692;</i>
-      <span>青湛(GitHub/mintsweet)</span>
-    </p>
-  </div>
+    2020
+    <span>青湛(GitHub/mintsweet)</span>
+  </p>
 </div>
     </div>
-  </div>
+  </footer>
 </body>
 
 <script src="/js/main.js"></script>

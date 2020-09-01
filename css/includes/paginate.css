@@ -1,0 +1,9 @@
+.paginate {
+  padding: 0 10px;
+  height: 40px; }
+  .paginate .prev {
+    float: left; }
+  .paginate .next {
+    float: right; }
+  .paginate .page-number {
+    display: none; }

@@ -1,13 +1,9 @@
 window.onload = function () {
-  const main = document.getElementById('main');
-  const mobileNavbar = document.getElementById('mobileNavbar');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuBar = document.getElementById('menuBar');
+  const btn = document.querySelector('.menu-controller');
+  const body = document.body;
 
-  menuBar.addEventListener('click', function() {
-    main.classList.toggle('slide-left');
-    mobileNavbar.classList.toggle('slide-left');
-    mobileMenu.classList.toggle('open');
-    menuBar.classList.toggle('open');
+  btn.addEventListener('click', function() {
+    btn.classList.toggle('active');
+    body.classList.toggle('offset');
   });
 }

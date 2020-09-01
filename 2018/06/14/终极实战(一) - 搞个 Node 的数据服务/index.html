@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>
     
     终极实战(一) - 搞个 Node 的数据服务 |
@@ -19,110 +20,54 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-
 <meta name="generator" content="Hexo 5.1.1"></head>
 <body>
-  <div class="mobile-navbar" id="mobileNavbar">
-  <div class="mobile-navbar-logo">
-    <a href="/." class="logo">青湛</a>
+  <nav class="nav">
+    <div class="nav-bar">
+  <div class="title">
+    <a href="/." title="青湛">青湛</a>
   </div>
-  <div class="mobile-navbar-menu" id="menuBar">
+  <div class="menu-controller">
     <span></span>
     <span></span>
     <span></span>
   </div>
 </div>
 
-<div class="mobile-menu" id="mobileMenu">
-  <ul class="mobile-menu-list">
-    
-    <li class="mobile-menu-item">
-      
-      <a href="/">
-        
-        首页
-        
-      </a>
-    </li>
-    
-    <li class="mobile-menu-item">
-      
-      <a href="/archives">
-        
-        归档
-        
-      </a>
-    </li>
-    
-    <li class="mobile-menu-item">
-      
-      <a href="/tags">
-        
-        标签
-        
-      </a>
-    </li>
-    
-  </ul>
+<div class="menu">
+  
+  <li>
+    <a href="/" title="首页">首页</a>
+  </li>
+  
+  <li>
+    <a href="/archives" title="归档">归档</a>
+  </li>
+  
+  <li>
+    <a href="/tags" title="标签">标签</a>
+  </li>
+  
 </div>
-  <div class="container" id="main">
+  </nav>
+  <main>
     <div class="layout">
-      <ul class="menu">
-  
-  <li class="menu-item">
-    <a href="/" class="iconfont icon-home"></a>
-    
-    <span>首页</span>
-  </li>
-  
-  <li class="menu-item">
-    <a href="/archives" class="iconfont icon-archive"></a>
-    
-    <span>归档</span>
-  </li>
-  
-  <li class="menu-item">
-    <a href="/tags" class="iconfont icon-tags"></a>
-    
-    <span>标签</span>
-  </li>
-  
-</ul>
       <article class="post">
-  <h1 class="post-title">
-    
+  <h1 class="title">
     终极实战(一) - 搞个 Node 的数据服务
-    
   </h1>
-  <div class="post-pub">
-    <div class="post-date">
-      <i class="iconfont">&#xe64d;</i>
-      <span>2018-06-14</span>
-    </div>
-    <div class="post-cat">
-      
-    </div>
+
+  <div class="info">
+    <span class="date">2018-06-14</span>
   </div>
 
-  <div class="post-content">
-    
-
-    
-    <blockquote>
-<p><code>2019-07-18</code> 没想到一年之后我才来重构为<strong>Koa</strong>版本。</p>
-</blockquote>
-<blockquote>
-<p><code>2018-07-08</code>…漏了一个重要部分，当时写的时候就没有把所有逻辑理清楚，导致我现在写写写的出现了大量的<strong>bug</strong>，补充系统说明。</p>
-</blockquote>
-<blockquote>
-<p><code>2018-07-03</code>…补充测试说明，修改部分内容.</p>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我今年二月的时候就准备筹划一整个<code>React</code>的学习系列，但是发现自己真的是不够强，理解还不够深刻，加上真的没有理想的那么多时间，所以直接简化到这几篇闲来无事系列。</p>
+  <div class="content">
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我今年二月的时候就准备筹划一整个<code>React</code>的学习系列，但是发现自己真的是不够强，理解还不够深刻，加上真的没有理想的那么多时间，所以直接简化到这几篇闲来无事系列。</p>
 <p>本篇用<code>Koa</code> 、 <code>MongoDB</code> 和 <code>Redis</code> 搞一个以<code>json</code>通信的服务器，用于之后所有客户端的接口服务！</p>
-<p><strong><a target="_blank" rel="noopener" href="https://github.com/mintsweet/practice/wiki/API">API详情</a></strong></p>
-<p><strong><a target="_blank" rel="noopener" href="https://github.com/mintsweet/practice/blob/master/packages/server/README.md">README</a></strong></p>
 <a id="more"></a>
 
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/mintsweet/practice/wiki/API">API详情</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/mintsweet/practice/blob/master/packages/server/README.md">README</a></strong></p>
 <h2 id="系统说明"><a href="#系统说明" class="headerlink" title="系统说明"></a>系统说明</h2><p>整个系统在设计下来之后，发现也不是想象的那么简单，但是也算不上复杂，大体上就是一个以发布话题为主体，围绕展开的功能。</p>
 <h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>整个数据结构分为五个大块，分别是<code>用户</code>、<code>话题</code>、<code>回复</code>、<code>消息</code>和<code>行为</code>。前三个都好说，<code>消息</code>其实也很好理解，比如一个用户关注了另一个用户，被关注的人肯定是有提醒的，主要说一下<code>行为</code>，为什么要叫行为呢？主要是用户的动作有多种，比如收藏、点赞等等，我不想为每一种行为都单独设定一个数据结构，它们的结构也完全可以类似，所以整体就叫做<code>行为</code>了。</p>
 <h3 id="多说两句"><a href="#多说两句" class="headerlink" title="多说两句"></a>多说两句</h3><p>大部分内容还是容易理解，我就说一下差不多写完以后才发现错了好多的地方，第一个就是数据层没有单独提出来，也就是操作数据库的部分还是封在了<code>controller</code>里面，但其实这样使得整个<code>controller</code>层中的代码很臃肿，后来我发现我的积分制度居然忘记加了，就开始一个文件一个文件的找每次需要增加积分的地方修改，其实如果抽离了数据层，修改起来就会简单许多。</p>
@@ -211,55 +156,39 @@
 <p>一个完整的流程就这么简单，所有其他的<code>API</code>也是这么做出来的，代码虽然我还在完善，不过大部分的<code>API</code>都已经完成了，后期也还可能在改一改，也会记录在<a target="_blank" rel="noopener" href="https://github.com/mintsweet/practice/blob/master/CHANGELOG.md">CHANGELOG</a>里面。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本篇作为我<strong>终极实战</strong>系列的第一篇，讲述用<code>Node</code>完整搭建一个数据服务器的过程，一次请求的完整流程，也是作为后面所有不同终端的数据服务，所以本篇的意义就是讲述一个提供服务的过程。</p>
 
-    
   </div>
 
   
-  <div class="post-tags">
+  <div class="tags">
     
-    <a href="/tags/%E6%8A%80%E6%9C%AF/" class="tag"><i class="iconfont">&#xe69f;</i>技术</a>
+    <a href="/tags/%E6%8A%80%E6%9C%AF/" title="技术" class="tag">技术</a>
     
-    <a href="/tags/JavaScript/" class="tag"><i class="iconfont">&#xe69f;</i>JavaScript</a>
+    <a href="/tags/JavaScript/" title="JavaScript" class="tag">JavaScript</a>
     
   </div>
+  
 </article>
-      <div class="footer">
-  
-  <div class="footer-links">
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="layout">
+      <div class="copy">
+  <p>
+    由 <a target="_blank" rel="noopener" href="https://hexo.io/" title="Hexo">Hexo</a> 强力驱动 |
+    主题 - <a target="_blank" rel="noopener" href="https://github.com/mintsweet/hexo-theme-cold" title="Cold">Cold</a>
+  </p>
+  <p>
     
+    &copy;
     
-    <a href="mailto:envelope" class="iconfont icon-envelope"></a>
+    2017 -
     
-    
-    
-    <a target="_blank" rel="noopener" href="https://github.com/mintsweet" class="iconfont icon-github"></a>
-    
-    
-    
-    <a target="_blank" rel="noopener" href="https://weibo.com/yudaren0720" class="iconfont icon-weibo"></a>
-    
-    
-  </div>
-  
-  <div class="footer-copy">
-    <p>
-      由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 
-      主题 - <a href="https://github.com/yudaren007007/hexo-theme-cold" target="_blank">Cold</a>
-    </p>
-    <p>
-      
-      &copy;
-      
-      2017 -
-      
-      2020
-      <i class="iconfont">&#xe692;</i>
-      <span>青湛(GitHub/mintsweet)</span>
-    </p>
-  </div>
+    2020
+    <span>青湛(GitHub/mintsweet)</span>
+  </p>
 </div>
     </div>
-  </div>
+  </footer>
 </body>
 
 <script src="/js/main.js"></script>
