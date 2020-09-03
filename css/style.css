@@ -1,4 +1,9 @@
 @charset "UTF-8";
+@font-face {
+  font-weight: normal;
+  font-family: "Long Cang";
+  src: local("Long Cang"), url("../../lib/Long_Cang/LongCang-Regular.ttf") format("truetype"); }
+
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -405,14 +410,15 @@ template {
 
 body {
   font-size: 16px;
-  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Long Cang", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   color: #555;
   line-height: 2;
   background-color: #fefefe;
-  border-top: 5px solid #03353e; }
+  border-top: 5px solid #1F3696; }
   @media screen and (max-width: 960px) {
     body {
-      border-top: none; } }
+      border-top: none;
+      font-siz: 14px; } }
   body.offset {
     transition: transform 0.3s;
     transform: translateX(-160px);
@@ -420,34 +426,58 @@ body {
 
 h1 {
   font-size: 22px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
+  font-family: "Long Cang", Athelas, STHeiti, Microsoft Yahei, serif; }
+
+@media screen and (max-width: 960px) {
+  h1 {
+    font-size: 20px; } }
 
 h2 {
   font-size: 20px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
+  font-family: "Long Cang", Athelas, STHeiti, Microsoft Yahei, serif; }
+
+@media screen and (max-width: 960px) {
+  h2 {
+    font-size: 18px; } }
 
 h3 {
   font-size: 18px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
+  font-family: "Long Cang", Athelas, STHeiti, Microsoft Yahei, serif; }
+
+@media screen and (max-width: 960px) {
+  h3 {
+    font-size: 16px; } }
 
 h4 {
   font-size: 16px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
+  font-family: "Long Cang", Athelas, STHeiti, Microsoft Yahei, serif; }
+
+@media screen and (max-width: 960px) {
+  h4 {
+    font-size: 14px; } }
 
 h5 {
   font-size: 14px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
+  font-family: "Long Cang", Athelas, STHeiti, Microsoft Yahei, serif; }
+
+@media screen and (max-width: 960px) {
+  h5 {
+    font-size: 12px; } }
 
 h6 {
   font-size: 12px;
-  font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
+  font-family: "Long Cang", Athelas, STHeiti, Microsoft Yahei, serif; }
+
+@media screen and (max-width: 960px) {
+  h6 {
+    font-size: 10px; } }
 
 a {
   text-decoration: none;
   color: #555;
   transition: color 0.3s; }
   a:hover {
-    color: #010b0d; }
+    color: #16276c; }
 
 .layout {
   margin: 0 auto;
@@ -490,8 +520,8 @@ a {
         margin-top: -1px;
         width: 20px;
         height: 2px;
-        background-color: #03353e;
-        transition: transform .3s; }
+        background-color: #1F3696;
+        transition: transform 0.3s; }
         .nav .nav-bar .menu-controller span:first-child {
           transform: translateY(6px) rotate(0deg); }
         .nav .nav-bar .menu-controller span:last-child {
@@ -515,10 +545,14 @@ a {
     margin: 0;
     padding: 0;
     width: 160px;
+    background-color: #fefefe;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
     list-style: none; }
     .nav .menu li {
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 40px; }
     @media screen and (max-width: 960px) {
       .nav .menu {
@@ -532,7 +566,7 @@ a {
           justify-content: center; } }
 
 .footer {
-  margin-top: 200px;
+  margin-top: 100px;
   padding-bottom: 20px;
   text-align: center; }
   .footer p {
@@ -542,15 +576,15 @@ a {
   margin: 10px 0;
   text-align: center; }
   .tag-cloud h3 span {
-    color: #03353e;
-    border-bottom: 2px solid #03353e; }
+    color: #1F3696;
+    border-bottom: 2px solid #1F3696; }
   .tag-cloud a {
     display: inline-block;
     margin: 5px 10px;
     word-wrap: break-word;
     transition: transform ease-out 0.2s; }
     .tag-cloud a:hover {
-      color: #03353e;
+      color: #1F3696;
       transform: scale(1.1); }
 
 .archive {
@@ -560,7 +594,7 @@ a {
   .archive .name {
     margin: 15px 0; }
   .archive .counter {
-    color: #055f6f; }
+    color: #2845c0; }
   .archive .year {
     margin: 15px 0;
     line-height: 30px; }
@@ -572,22 +606,23 @@ a {
       margin-right: 10px;
       color: #b7b7b7; }
     .archive .post .post-title {
-      color: #03353e; }
+      color: #1F3696; }
     .archive .post:hover {
-      border-left: 3px solid #03353e;
+      border-left: 3px solid #1F3696;
       transform: translateX(4px); }
       .archive .post:hover .post-title {
-        color: #077387; }
+        color: #2e4ed4; }
 
 code, pre {
   padding: 7px;
-  background-color: rgba(25, 211, 244, 0.1); }
+  font-family: Menlo, monospace;
+  font-size: 12px;
+  background-color: rgba(151, 167, 234, 0.1); }
 
 code {
-  margin: 0 3px;
   padding: 2px 5px;
-  color: #055f6f;
-  background: rgba(10, 178, 208, 0.1);
+  color: #2845c0;
+  background: rgba(109, 132, 225, 0.1);
   border-radius: 3px; }
 
 .highlight {
@@ -607,7 +642,7 @@ code {
       padding: 2px 7px;
       font-weight: 600;
       color: #fefefe;
-      background-color: #055f6f; }
+      background-color: #2845c0; }
   .highlight.html > table::after {
     content: "HTML"; }
   .highlight.html > figcaption > span::after {
@@ -695,8 +730,12 @@ code {
   .highlight br {
     display: none !important; }
 
+@media screen and (max-width: 960px) {
+  .post-list {
+    padding: 0 10px; } }
+
 .post-list .post::after {
-  content: '';
+  content: "";
   display: block;
   margin: 20px 0;
   height: 3px;
@@ -709,23 +748,37 @@ code {
 
 .post {
   position: relative;
-  padding: 0 5px;
   overflow: hidden; }
-  .post .title {
+  @media screen and (max-width: 960px) {
+    .post {
+      padding: 0 10px; } }
+  .post > .title {
     position: relative;
-    padding-left: 10px; }
-    .post .title::before {
+    padding-left: 20px; }
+    .post > .title::before {
       content: "";
       position: absolute;
+      top: 50%;
+      margin-top: -12px;
       left: 0;
       bottom: 0;
       width: 3px;
-      height: 100%;
-      background: #055f6f; }
+      height: 24px;
+      background: #2845c0; }
   .post .info {
     display: flex; }
   .post .content {
     margin-top: 20px; }
+    .post .content blockquote {
+      position: relative;
+      margin: 10px 0;
+      padding: 4px 20px;
+      color: rgba(31, 54, 150, 0.8);
+      background-color: white;
+      border-left: 3px solid #1F3696;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
+      .post .content blockquote p {
+        margin: 0; }
   .post .read-more {
     display: block;
     transition: transform 0.3s; }
@@ -733,10 +786,10 @@ code {
       transform: translateX(10px); }
   .post .tags {
     margin-top: 20px;
-    border-top: 1px dashed rgba(3, 53, 62, 0.4); }
+    border-top: 1px dashed rgba(31, 54, 150, 0.4); }
     .post .tags .tag {
       margin-right: 10px;
-      color: #077387; }
+      color: #2e4ed4; }
 
 .paginate {
   padding: 0 10px;
